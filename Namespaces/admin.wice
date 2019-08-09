@@ -1,0 +1,22 @@
+// Every [] returns an array
+
+[Name]
+Admin
+
+[IsSecure]
+true
+
+[Whitelisted Users]
+@Jared
+
+[Data]
+    [Key]
+    Location
+
+    [Value]
+    {lat: 40, long: 39}
+    {lat: 17, long: 25}
+
+
+
+

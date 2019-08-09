@@ -1,22 +1,29 @@
 import { Injectable } from 'node_modules/@nestjs/common';
-import * as fs from 'fs';
+import { JsonService } from './json.service';
+import * as jsonfile from 'jsonfile';
+import { JSONPath } from 'jsonpath-plus';
 
 @Injectable()
 export class DataService {
-    public read(namespace: string, path: string): Promise<any> {
-        const promise = new Promise<any>((resolve, reject) => {
-            const json = fs.readFileSync('../Files/namespaces.conf.json').toJSON();
 
-            if (json !== undefined) {
-                resolve(json);
+    private namespacesDataFile = '../Files/namespaces.conf.json';
+
+    constructor(private _jsonService: JsonService) {  }
+
+    public async read(namespace: string, path: string): Promise<any> {
+            const json = await jsonfile.readFile(this.namespacesDataFile);
+            const namespaces = json['namespaces'] as Namespace[];
+            const matchingNamespaces = namespaces.filter(n => n.name === namespace);
+
+            if (matchingNamespaces.length > 0) {
+                const namespaceData = matchingNamespaces[0].data;
+                const filterdData = this._jsonService.get(namespaceData, path);
+                return filterdData;
             } else {
-                reject('Error reading');
+                throw new NoMatchingNamespacesError();
             }
-        });
-
-        return promise;
     }
-    public write() { 
-        
+    public write(namespace: string, path: string, value: object) {
+
     }
 }

@@ -5,6 +5,7 @@
     "no-unused-expression": false
   },
   "rules": {
+    "curly": false,
     "max-classes-per-file": false,
     "quotemark": [true, "single"],
     "member-access": [false],
@@ -12,10 +13,13 @@
     "max-line-length": [true, 150],
     "member-ordering": [false],
     "interface-name": [false],
+    "no-string-literal": false,
     "arrow-parens": false,
+    "object-literal-key-quotes": false,
     "object-literal-sort-keys": false,
     "no-unused-variable": false,
     "no-console": false,
+    "no-trailing-whitespace": false,
     "variable-name": {
       "options": [
         "allow-leading-underscore"
