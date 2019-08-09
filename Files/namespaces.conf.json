@@ -1,0 +1,25 @@
+{
+    "nameSpaces": [
+        {
+            "name": "Admin",
+            "isSecure": true,
+            "whiteListedUsers": [
+                "jared"
+            ],
+            "data": {
+                "location": [
+                    40,
+                    39
+                ],
+                "lastHome": 1000
+            }
+        },
+        {
+            "name": "Enviroment",
+            "isSecure": false,
+            "data": {
+                "sysName": "WICE"
+            }
+        }
+    ]
+}

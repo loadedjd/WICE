@@ -2,9 +2,10 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended"],
   "jsRules": {
-    "no-unused-expression": true
+    "no-unused-expression": false
   },
   "rules": {
+    "max-classes-per-file": false,
     "quotemark": [true, "single"],
     "member-access": [false],
     "ordered-imports": [false],
@@ -13,7 +14,13 @@
     "interface-name": [false],
     "arrow-parens": false,
     "object-literal-sort-keys": false,
-    "no-unused-variable": false
+    "no-unused-variable": false,
+    "no-console": false,
+    "variable-name": {
+      "options": [
+        "allow-leading-underscore"
+      ]
+    }
   },
   "rulesDirectory": []
 }
